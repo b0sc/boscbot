@@ -79,10 +79,11 @@ router.post('/', async (request, env) => {
         });
       }
       case GREET_COMMAND.name.toLowerCase(): {
+        const greet = `Hello, <@${interaction.member.user.id}>!`
         return new JsonResponse({
           type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
           data: {
-            content: `Hello, <@${interaction.member.user.id}`,
+            content: greet,
           },
         });
       }
