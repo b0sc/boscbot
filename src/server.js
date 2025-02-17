@@ -78,13 +78,14 @@ router.post('/', async (request, env) => {
           },
         });
       }
-        case GREET_COMMAND.name.toLowerCase():{
-          return new JsonResponse({
-            type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
-            data: {
-              content:'Hello, <@${interaction.member.user.id}'}
-          })
-        };
+      case GREET_COMMAND.name.toLowerCase(): {
+        return new JsonResponse({
+          type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
+          data: {
+            content: `Hello, <@${interaction.member.user.id}`,
+          },
+        });
+      }
 
       default:
         return new JsonResponse({ error: 'Unknown Type' }, { status: 400 });
