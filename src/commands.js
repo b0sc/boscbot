@@ -15,5 +15,5 @@ export const INVITE_COMMAND = {
 
 export const GREET_COMMAND = {
   name: 'greet',
-  description: 'Get a greeting from the bot',
+  description: 'Greets the user with a friendly message!',
 };
