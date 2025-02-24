@@ -8,7 +8,12 @@ import {
   InteractionType,
   verifyKey,
 } from 'discord-interactions';
-import { AWW_COMMAND, INVITE_COMMAND, GREET_COMMAND } from './commands.js';
+import {
+  AWW_COMMAND,
+  INVITE_COMMAND,
+  GREET_COMMAND,
+  ROLL_COMMAND,
+} from './commands.js';
 import { getCuteUrl } from './reddit.js';
 import { InteractionResponseFlags } from 'discord-interactions';
 
@@ -83,6 +88,17 @@ router.post('/', async (request, env) => {
           type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
           data: {
             content: `Hello, <@${interaction.member.user.id}>`,
+          },
+        });
+      }
+      case ROLL_COMMAND.name.toLowerCase(): {
+        // Generate a random number between 1 and 6
+        const rollResult = Math.floor(Math.random() * 6) + 1;
+
+        return new JsonResponse({
+          type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
+          data: {
+            content: `You rolled a ${rollResult}!`,
           },
         });
       }

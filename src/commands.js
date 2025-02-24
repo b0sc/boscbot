@@ -17,3 +17,8 @@ export const GREET_COMMAND = {
   name: 'greet',
   description: 'Greets the user with a friendly message!',
 };
+
+export const ROLL_COMMAND = {
+  name: 'roll',
+  description: 'Rolls a dice and returns a random number between 1 and 6.',
+};
